@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // KYC Documents storage rules
+    match /kyc-documents/{userId}/{documentType}/{fileName} {
+      // Users can only upload documents to their own folder
+      allow create: if request.auth != null && 
+                       request.auth.uid == userId &&
+                       request.resource.size < 10 * 1024 * 1024; // 10MB limit
+      
+      // Users can read their own documents
+      allow read: if request.auth != null && 
+                     request.auth.uid == userId;
+      
+      // Admins can read all documents
+      allow read: if request.auth != null && 
+                     request.auth.token.role == 'admin';
+      
+      // No updates or deletes allowed
+      allow update, delete: if false;
+    }
+  }
+} 
