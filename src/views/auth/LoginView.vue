@@ -48,6 +48,21 @@
           </div>
         </div>
 
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input
+              id="remember-me"
+              v-model="form.rememberMe"
+              name="remember-me"
+              type="checkbox"
+              class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+            />
+            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+              Remember me
+            </label>
+          </div>
+        </div>
+
         <div v-if="authStore.error" class="bg-danger-50 border border-danger-200 text-danger-600 px-4 py-3 rounded">
           {{ authStore.error }}
         </div>
@@ -88,7 +103,8 @@ const authStore = useAuthStore()
 
 const form = reactive({
   email: '',
-  password: ''
+  password: '',
+  rememberMe: false
 })
 
 const handleLogin = async () => {
