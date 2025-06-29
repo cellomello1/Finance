@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "sme-finance-kyc-app",
   "version": "1.0.0",
   "description": "SME Finance Platform with KYC Document Verification",
@@ -28,3 +29,20 @@
     "eslint-plugin-vue": "^9.16.1"
   }
 } 
+=======
+  "name": "finance-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd Finance && npm run dev"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "pinia": "^3.0.3",
+    "vue-router": "^4.5.1"
+  }
+}
+>>>>>>> Save all local changes before rebase
